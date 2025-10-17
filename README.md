@@ -717,9 +717,19 @@ This repository includes comprehensive VS Code debugging configurations for the 
 
 Access via `Ctrl+Shift+P` → `Tasks: Run Task`:
 
-- **`build-console-app`** - Build the console application
-- **`build-main-library`** - Build the main TinyURL library
+**Development Tasks:**
+- **`build-console-app`** - Build the console application (Debug mode)
+- **`build-main-library`** - Build the main TinyURL library (Debug mode)  
 - **`run-console-app`** - Run the console application
+
+**Release & Packaging:**
+- **`build-library-release`** - Build library in Release mode
+- **`pack-nuget-release`** - Create NuGet package in Release mode
+- **`build-and-pack-release`** - 🚀 Build and pack Release (recommended)
+
+**Maintenance:**
+- **`clean-all`** - Clean build outputs
+- **`clean-artifacts`** - Clean artifacts directory
 
 #### Debugging Tips
 
@@ -748,6 +758,8 @@ TinyURL-nuget/
 │   ├── tasks.json           # Build and run tasks
 │   ├── settings.json        # VS Code workspace settings
 │   └── extensions.json      # Recommended extensions
+├── artifacts/               # 📦 Generated NuGet packages (Release builds)
+│   └── HLab.TinyURL.Client.x.x.x.nupkg
 ├── examples/ConsoleApp/TinyUrlConsoleExample/
 │   ├── Program.cs           # 🎯 Main debugging target
 │   ├── .vscode/             # Console app specific configs
