@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug TinyURL Console App",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-console-app",
+            "program": "${workspaceFolder}/examples/ConsoleApp/TinyUrlConsoleExample/bin/Debug/net8.0/TinyUrlConsoleExample.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/examples/ConsoleApp/TinyUrlConsoleExample",
+            "console": "integratedTerminal",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart",
+            "justMyCode": true,
+            "requireExactSource": false
+        },
+        {
+            "name": "Debug TinyURL Console App (External Terminal)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-console-app",
+            "program": "${workspaceFolder}/examples/ConsoleApp/TinyUrlConsoleExample/bin/Debug/net8.0/TinyUrlConsoleExample.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/examples/ConsoleApp/TinyUrlConsoleExample",
+            "console": "externalTerminal",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart",
+            "justMyCode": true
+        },
+        {
+            "name": "Run TinyURL Console App (No Debug)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-console-app",
+            "program": "${workspaceFolder}/examples/ConsoleApp/TinyUrlConsoleExample/bin/Debug/net8.0/TinyUrlConsoleExample.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/examples/ConsoleApp/TinyUrlConsoleExample",
+            "console": "integratedTerminal",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart",
+            "justMyCode": false,
+            "enableStepFiltering": false
+        }
+    ]
+}

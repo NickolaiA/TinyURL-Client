@@ -688,6 +688,91 @@ public async Task CreateShortUrlAsync_ShouldReturnShortUrl_WhenValidUrl()
 }
 ```
 
+## Development and Debugging
+
+### VS Code Debugging Support
+
+This repository includes comprehensive VS Code debugging configurations for the console application example.
+
+#### Quick Start
+
+1. **Open in VS Code:**
+   ```bash
+   code .
+   ```
+
+2. **Debug the Console App:**
+   - Press `F5` and select **"Debug TinyURL Console App"**
+   - Or go to Run and Debug panel and choose from available configurations
+
+#### Available Debug Configurations
+
+| Configuration | Description | Use Case |
+|---------------|-------------|----------|
+| **Debug TinyURL Console App** | Full debugging with breakpoints | Development and troubleshooting |
+| **Debug TinyURL Console App (External Terminal)** | Debug in external terminal | Better terminal interaction |
+| **Run TinyURL Console App (No Debug)** | Run without debugger | Performance testing |
+
+#### VS Code Tasks
+
+Access via `Ctrl+Shift+P` → `Tasks: Run Task`:
+
+- **`build-console-app`** - Build the console application
+- **`build-main-library`** - Build the main TinyURL library
+- **`run-console-app`** - Run the console application
+
+#### Debugging Tips
+
+**Useful Breakpoints:**
+- **Authentication Logic** - Line ~50 in `Program.cs`
+- **TinyURLClient Creation** - Line ~95 in `Program.cs`
+- **API Request** - Line ~110 in `Program.cs`
+- **Response Handling** - Line ~125 in `Program.cs`
+
+**Variables to Watch:**
+- `bearerToken` / `apiKey` - Authentication credentials
+- `createRequest` - Request object sent to API
+- `response.Data` - API response data structure
+
+**Console Integration:**
+- Uses VS Code integrated terminal for seamless user input
+- Interactive prompts work during debugging sessions
+- Can test with real or mock credentials
+
+#### Project Structure for Debugging
+
+```
+TinyURL-nuget/
+├── .vscode/
+│   ├── launch.json          # Debug configurations
+│   ├── tasks.json           # Build and run tasks
+│   ├── settings.json        # VS Code workspace settings
+│   └── extensions.json      # Recommended extensions
+├── examples/ConsoleApp/TinyUrlConsoleExample/
+│   ├── Program.cs           # 🎯 Main debugging target
+│   ├── .vscode/             # Console app specific configs
+│   └── DEBUG_GUIDE.md       # Detailed debugging guide
+└── src/HLab.TinyURL.Client/ # Main library source
+```
+
+#### Required Extensions
+
+The workspace will recommend installing:
+- **C# Dev Kit** (`ms-dotnettools.csdevkit`)
+- **C#** (`ms-dotnettools.csharp`)
+- **.NET Runtime** (`ms-dotnettools.vscode-dotnet-runtime`)
+
+#### Console App Example
+
+The `examples/ConsoleApp/TinyUrlConsoleExample/` demonstrates:
+- ✅ **Full TinyURLClient Integration** with analytics
+- 🔐 **Both Authentication Methods** (Bearer token + API key)
+- 📊 **Analytics Demonstration** with error handling
+- 🛡️ **Input Validation** and comprehensive error handling
+- 📱 **Interactive UI** for testing different scenarios
+
+See [`examples/ConsoleApp/TinyUrlConsoleExample/README.md`](examples/ConsoleApp/TinyUrlConsoleExample/README.md) for detailed console app documentation.
+
 ## License
 
 This project is licensed under the MIT License.

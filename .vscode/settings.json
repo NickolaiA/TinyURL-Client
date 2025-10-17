@@ -1,0 +1,16 @@
+{
+    "omnisharp.enableEditorConfigSupport": true,
+    "omnisharp.enableRoslynAnalyzers": true,
+    "files.exclude": {
+        "**/bin": true,
+        "**/obj": true,
+        "**/.vs": true
+    },
+    "search.exclude": {
+        "**/bin": true,
+        "**/obj": true,
+        "**/.vs": true,
+        "**/node_modules": true
+    },
+    "dotnet.defaultSolution": "${workspaceFolder}/src/HLab.TinyURL.Client/HLab.TinyURL.Client.sln"
+}
