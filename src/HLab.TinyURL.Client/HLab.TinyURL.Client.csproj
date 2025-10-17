@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    
+    <!-- NuGet Package Configuration -->
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>HLab.TinyURL.Client</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>NickolaiA</Authors>
+    <Company>HLab</Company>
+    <Product>HLab.TinyURL.Client</Product>
+    <Description>A .NET client library for TinyURL services</Description>
+    <PackageTags>tinyurl;url;shortener;client;api</PackageTags>
+    <PackageProjectUrl>https://github.com/NickolaiA/TinyURL-nuget</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/NickolaiA/TinyURL-nuget</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Copyright>Copyright (c) 2025 Mykola Aleksandrov</Copyright>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+
+</Project>
