@@ -4432,8 +4432,8 @@ namespace HLab.TinyURL
         /// <summary>
         /// Analytics settings
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("analytics", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.IList<Analytics> Analytics { get; set; }
+        //[Newtonsoft.Json.JsonProperty("analytics", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Analytics Analytics { get; set; }
 
         /// <summary>
         /// Short URL
