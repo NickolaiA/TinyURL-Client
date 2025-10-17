@@ -66,6 +66,110 @@
                 "clear": true
             },
             "dependsOn": "build-console-app"
+        },
+        {
+            "label": "build-library-release",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/HLab.TinyURL.Client/HLab.TinyURL.Client.csproj",
+                "--configuration", "Release",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            }
+        },
+        {
+            "label": "pack-nuget-release",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "pack",
+                "${workspaceFolder}/src/HLab.TinyURL.Client/HLab.TinyURL.Client.csproj",
+                "--configuration", "Release",
+                "--no-build",
+                "--output", "${workspaceFolder}/artifacts",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            },
+            "dependsOn": "build-library-release"
+        },
+        {
+            "label": "build-and-pack-release",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "build-library-release",
+                "pack-nuget-release"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            }
+        },
+        {
+            "label": "clean-all",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "clean",
+                "${workspaceFolder}/src/HLab.TinyURL.Client/HLab.TinyURL.Client.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            }
+        },
+        {
+            "label": "clean-artifacts",
+            "command": "powershell",
+            "type": "process",
+            "args": [
+                "-Command",
+                "if (Test-Path '${workspaceFolder}/artifacts') { Remove-Item '${workspaceFolder}/artifacts' -Recurse -Force; Write-Host 'Artifacts directory cleaned' } else { Write-Host 'No artifacts directory to clean' }"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
         }
     ]
 }
