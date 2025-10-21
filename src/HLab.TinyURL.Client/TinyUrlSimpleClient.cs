@@ -9,7 +9,7 @@ public class TinyUrlSimpleClient : IDisposable, ITinyUrlSimpleClient
 {
     private readonly HttpClient _httpClient;
     private readonly bool _disposeHttpClient;
-    private const string CreateApiUrl = "https://ttinyurl.com/api-create.php";
+    private const string CreateApiUrl = "https://tinyurl.com/api-create.php";
 
     /// <summary>
     /// Initializes a new instance of the TinyUrlClient class
