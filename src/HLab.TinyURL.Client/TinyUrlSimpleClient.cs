@@ -5,11 +5,11 @@ namespace HLab.TinyURL.Client;
 /// <summary>
 /// A client for interacting with TinyURL services
 /// </summary>
-public class TinyUrlSimpleClient : IDisposable
+public class TinyUrlSimpleClient : IDisposable, ITinyUrlSimpleClient
 {
     private readonly HttpClient _httpClient;
     private readonly bool _disposeHttpClient;
-    private const string CreateApiUrl = "https://tinyurl.com/api/create";
+    private const string CreateApiUrl = "https://ttinyurl.com/api-create.php";
 
     /// <summary>
     /// Initializes a new instance of the TinyUrlClient class
@@ -46,7 +46,7 @@ public class TinyUrlSimpleClient : IDisposable
             throw new ArgumentNullException(nameof(url));
 
         // Validate URL format
-        if (!Uri.TryCreate(url, UriKind.Absolute, out var uri) || 
+        if (!Uri.TryCreate(url, UriKind.Absolute, out var uri) ||
             (uri.Scheme != "http" && uri.Scheme != "https"))
         {
             throw new ArgumentException("Invalid URL format. URL must be a valid HTTP or HTTPS URL.", nameof(url));
@@ -55,7 +55,7 @@ public class TinyUrlSimpleClient : IDisposable
         try
         {
             var requestUrl = BuildRequestUrl(url, alias);
-            
+
             var response = await _httpClient.GetAsync(requestUrl, cancellationToken);
             var responseContent = await response.Content.ReadAsStringAsync(cancellationToken);
 
@@ -66,7 +66,7 @@ public class TinyUrlSimpleClient : IDisposable
 
             // TinyURL returns the shortened URL directly as plain text
             var shortUrl = responseContent.Trim();
-            
+
             // Validate the response
             if (string.IsNullOrWhiteSpace(shortUrl))
             {
@@ -123,7 +123,7 @@ public class TinyUrlSimpleClient : IDisposable
             if (!IsValidAlias(alias))
             {
                 throw new ArgumentException(
-                    "Alias must contain only alphanumeric characters, hyphens, and underscores, and be between 5-30 characters long.", 
+                    "Alias must contain only alphanumeric characters, hyphens, and underscores, and be between 5-30 characters long.",
                     nameof(alias));
             }
 
