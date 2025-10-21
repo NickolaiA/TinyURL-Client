@@ -172,11 +172,11 @@ public class UrlShorteningService
         using var httpClient = _httpClientFactory.CreateClient();
         var client = new TinyURLClient(httpClient);
         
-        var result = await client.CreateTinyUrlAsync(new TinyUrlRequest 
+        var result = await client.CreateTinyUrlAsync(new CreateTinyURLRequest 
         { 
             Url = url 
         });
-        return result.TinyUrl;
+        return result.Data.Tiny_url;
     }
 }
 
@@ -186,11 +186,11 @@ var client = new TinyURLClient(httpClient);
 
 try
 {
-    var result = await client.CreateTinyUrlAsync(new TinyUrlRequest 
+    var result = await client.CreateTinyUrlAsync(new CreateTinyURLRequest 
     { 
         Url = "https://www.example.com" 
     });
-    Console.WriteLine($"Shortened URL: {result.TinyUrl}");
+    Console.WriteLine($"Shortened URL: {result.Data.Tiny_url}");
 }
 finally
 {
@@ -231,12 +231,12 @@ var client = new TinyURLClient(httpClient);
 try
 {
     // Shorten a URL with custom alias using TinyURLClient
-    var result = await client.CreateTinyUrlAsync(new TinyUrlRequest 
+    var result = await client.CreateTinyUrlAsync(new CreateTinyURLRequest 
     { 
         Url = "https://www.example.com",
         Alias = "my-custom-alias" 
     });
-    Console.WriteLine($"Custom shortened URL: {result.TinyUrl}");
+    Console.WriteLine($"Custom shortened URL: {result.Data.Tiny_url}");
 }
 catch (ArgumentException ex)
 {
@@ -275,7 +275,7 @@ public class TinyUrlAnalyticsService
         var client = new TinyURLClient(httpClient);
         
         // Create shortened URL with advanced options
-        var createRequest = new CreateRequest
+        var createRequest = new CreateTinyURLRequest
         {
             Url = url,
             Alias = alias,
@@ -292,7 +292,7 @@ public class TinyUrlAnalyticsService
             tag: null
         );
         
-        return (response.Data.TinyUrl, analytics.Data.TotalClicks);
+        return (response.Data.Tiny_url, analytics.Data.Total);
     }
 }
 
@@ -397,8 +397,8 @@ public class MyService
         using var httpClient = _httpClientFactory.CreateClient("TinyUrlClient");
         var client = new TinyURLClient(httpClient);
         
-        var result = await client.CreateTinyUrlAsync(new TinyUrlRequest { Url = url });
-        return result.TinyUrl;
+        var result = await client.CreateTinyUrlAsync(new CreateTinyURLRequest { Url = url });
+        return result.Data.Tiny_url;
     }
 }
 
@@ -434,22 +434,22 @@ public async Task<string> RecommendedApproach(IHttpClientFactory factory)
     using var httpClient = factory.CreateClient("TinyUrlClient");
     using var client = new TinyURLClient(httpClient);
     
-    var result = await client.CreateTinyUrlAsync(new TinyUrlRequest 
+    var result = await client.CreateTinyUrlAsync(new CreateTinyURLRequest 
     { 
         Url = "https://www.example.com" 
     });
-    return result.TinyUrl;
+    return result.Data.Tiny_url;
 }
 
 // ⚠️ ACCEPTABLE: For simple console apps only
 using var httpClient = new HttpClient(); // Consider HttpClientFactory for production
 using var client = new TinyURLClient(httpClient);
 
-var result = await client.CreateTinyUrlAsync(new TinyUrlRequest 
+var result = await client.CreateTinyUrlAsync(new CreateTinyURLRequest 
 { 
     Url = "https://www.example.com" 
 });
-Console.WriteLine($"Shortened URL: {result.TinyUrl}");
+Console.WriteLine($"Shortened URL: {result.Data.Tiny_url}");
 ```
 
 ## HttpClientFactory Best Practices
@@ -485,8 +485,8 @@ public class TinyUrlService
         using var httpClient = _httpClientFactory.CreateClient("TinyUrlClient");
         var client = new TinyURLClient(httpClient);
         
-        var result = await client.CreateTinyUrlAsync(new TinyUrlRequest { Url = url });
-        return result.TinyUrl;
+        var result = await client.CreateTinyUrlAsync(new CreateTinyURLRequest { Url = url });
+        return result.Data.Tiny_url;
     }
 }
 
