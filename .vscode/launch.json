@@ -19,6 +19,20 @@
             "requireExactSource": false
         },
         {
+            "name": "Debug TinyURL Simple Console App",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-simple-console-app",
+            "program": "${workspaceFolder}/examples/ConsoleApp/TinyUrlSimpleExample/bin/Debug/net8.0/TinyUrlSimpleExample.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/examples/ConsoleApp/TinyUrlSimpleExample",
+            "console": "integratedTerminal",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart",
+            "justMyCode": true,
+            "requireExactSource": false
+        },
+        {
             "name": "Debug TinyURL Console App (External Terminal)",
             "type": "coreclr",
             "request": "launch",
@@ -32,6 +46,19 @@
             "justMyCode": true
         },
         {
+            "name": "Debug TinyURL Simple Console App (External Terminal)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-simple-console-app",
+            "program": "${workspaceFolder}/examples/ConsoleApp/TinyUrlSimpleExample/bin/Debug/net8.0/TinyUrlSimpleExample.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/examples/ConsoleApp/TinyUrlSimpleExample",
+            "console": "externalTerminal",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart",
+            "justMyCode": true
+        },
+        {
             "name": "Run TinyURL Console App (No Debug)",
             "type": "coreclr",
             "request": "launch",
@@ -39,6 +66,20 @@
             "program": "${workspaceFolder}/examples/ConsoleApp/TinyUrlConsoleExample/bin/Debug/net8.0/TinyUrlConsoleExample.dll",
             "args": [],
             "cwd": "${workspaceFolder}/examples/ConsoleApp/TinyUrlConsoleExample",
+            "console": "integratedTerminal",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart",
+            "justMyCode": false,
+            "enableStepFiltering": false
+        },
+        {
+            "name": "Run TinyURL Simple Console App (No Debug)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-simple-console-app",
+            "program": "${workspaceFolder}/examples/ConsoleApp/TinyUrlSimpleExample/bin/Debug/net8.0/TinyUrlSimpleExample.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/examples/ConsoleApp/TinyUrlSimpleExample",
             "console": "integratedTerminal",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",

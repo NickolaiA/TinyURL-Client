@@ -774,7 +774,11 @@ The workspace will recommend installing:
 - **C#** (`ms-dotnettools.csharp`)
 - **.NET Runtime** (`ms-dotnettools.vscode-dotnet-runtime`)
 
-#### Console App Example
+#### Console App Examples
+
+This project includes two console application examples:
+
+##### 1. TinyUrlConsoleExample (Full Featured)
 
 The `examples/ConsoleApp/TinyUrlConsoleExample/` demonstrates:
 - ✅ **Full TinyURLClient Integration** with analytics
@@ -783,7 +787,30 @@ The `examples/ConsoleApp/TinyUrlConsoleExample/` demonstrates:
 - 🛡️ **Input Validation** and comprehensive error handling
 - 📱 **Interactive UI** for testing different scenarios
 
-See [`examples/ConsoleApp/TinyUrlConsoleExample/README.md`](examples/ConsoleApp/TinyUrlConsoleExample/README.md) for detailed console app documentation.
+See [`examples/ConsoleApp/TinyUrlConsoleExample/README.md`](examples/ConsoleApp/TinyUrlConsoleExample/README.md) for detailed documentation.
+
+##### 2. TinyUrlSimpleExample (Basic/Legacy)
+
+The `examples/ConsoleApp/TinyUrlSimpleExample/` demonstrates:
+- ✅ **TinyUrlSimpleClient Usage** for basic URL shortening
+- 🔓 **No Authentication Required** (public API)
+- 🎯 **Simple and Straightforward** implementation
+- 🛡️ **Basic Error Handling** and validation
+- 📱 **Interactive UI** for quick testing
+
+See [`examples/ConsoleApp/TinyUrlSimpleExample/README.md`](examples/ConsoleApp/TinyUrlSimpleExample/README.md) for detailed documentation.
+
+**Run the Examples:**
+
+```bash
+# Full-featured example (with authentication and analytics)
+cd examples/ConsoleApp/TinyUrlConsoleExample
+dotnet run
+
+# Simple example (no authentication required)
+cd examples/ConsoleApp/TinyUrlSimpleExample
+dotnet run
+```
 
 ## License
 

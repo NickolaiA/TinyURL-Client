@@ -26,6 +26,27 @@
             }
         },
         {
+            "label": "build-simple-console-app",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/examples/ConsoleApp/TinyUrlSimpleExample/TinyUrlSimpleExample.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
             "label": "build-main-library",
             "command": "dotnet",
             "type": "process",
@@ -66,6 +87,27 @@
                 "clear": true
             },
             "dependsOn": "build-console-app"
+        },
+        {
+            "label": "run-simple-console-app",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "run",
+                "--project",
+                "${workspaceFolder}/examples/ConsoleApp/TinyUrlSimpleExample/TinyUrlSimpleExample.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            },
+            "dependsOn": "build-simple-console-app"
         },
         {
             "label": "build-library-release",
