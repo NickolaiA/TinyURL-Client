@@ -1,3 +1,6 @@
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-support-yellow.svg?style=flat&logo=buy-me-a-coffee)](https://buymeacoffee.com/nick_a)
+
 # HLab.TinyURL.Client
 
 A .NET 8 client library for TinyURL services that allows you to create shortened URLs programmatically using the official TinyURL API.
